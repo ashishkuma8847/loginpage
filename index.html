@@ -123,6 +123,7 @@
         }
 
         input {
+            padding-left: 3px;
             outline: none;
             border: none;
             background: transparent;
@@ -135,14 +136,13 @@
             flex-direction: column;
         }
 
-        .input1:hover label {
+        /* .input1:hover label {
             transform: translateY(0px);
-            transition: all 0.5s ease-in-out;
-        }
+        } */
 
         label {
             transform: translateY(18px);
-            transition: all 0.5s ease-in-out;
+            transition: all 0.3s ease-in-out;
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
@@ -176,12 +176,14 @@
             gap: 10px;
 
         }
+
         .buttons-main1 {
             display: flex;
             flex-direction: column;
             gap: 10px;
 
         }
+
         .login1 {
             width: 100%;
             padding: 12px;
@@ -204,12 +206,12 @@
         .forget1 {
             padding: 12px;
             display: flex;
-               justify-content: center;
-               align-items: center;
-               gap: 10px;
-               background: white;
-               color: black;
-               border-radius: 5px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: black;
+            border-radius: 5px;
             border: none;
             font-family: Poppins;
             font-weight: 400;
@@ -219,7 +221,8 @@
             transition: all 0.3s;
 
         }
-        .forget1:hover{
+
+        .forget1:hover {
             background: transparent;
             color: white;
         }
@@ -254,64 +257,128 @@
             letter-spacing: 0%;
 
         }
+        .arrow{
+            background-color: white;
+            border: none;
+            border-radius: 100%;
+            width: 46px;
+            height: 46px;
+            margin: 0 auto;
+        }
+        .error{
+            display:   flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="neon-ring"></div>
-
         <div class="wrapper">
             <div class="main1">
                 <h1>Login</h1>
                 <h4>Enter your details below</h4>
-                <div class="input1">
-                    <label for="name1">Email or Phone Number</label>
+                <div onclick="move()" class="input1">
+                    <label class="label1" for="name1">Email or Phone Number</label>
                     <input id="name1" type="text">
                 </div>
-                <div class="input1">
-                    <label for="name2">Password</label>
+                <div onclick="move2()" class="input1">
+                    <label class="label2" for="name2">Password</label>
                     <input id="name2" type="text">
                 </div>
                 <div class="buttons-main">
                     <button onclick=main1() class="login">Log In</button>
-                    <button class="forget">Forget Password?</button>
+                    <button onclick=error() class="forget">Forget Password?</button>
                 </div>
             </div>
            
         </div>
     </div>
 
+
     <script>
-        function main1() {
-            const app= document.querySelectorAll(".main1")
+        function error() {
+            const app = document.querySelectorAll(".main1")
             app.forEach((element, index) => {
-        element.innerHTML = `
+                element.innerHTML = `
+      <div class="error">
+            <h1>ERROR 404</h1>
+    <button class="arrow" onclick=main()><img src="./icons_arrow-left.png" alt=""></button>
+
+           </div>
+        `;
+            });
+        }
+        function main() {
+            const app = document.querySelectorAll(".main1")
+            app.forEach((element, index) => {
+                element.innerHTML = `
+       <div class="main1">
+                <h1>Login</h1>
+                <h4>Enter your details below</h4>
+                <div onclick="move()" class="input1">
+                    <label class="label1" for="name1">Email or Phone Number</label>
+                    <input id="name1" type="text">
+                </div>
+                <div onclick="move2()" class="input1">
+                    <label class="label2" for="name2">Password</label>
+                    <input id="name2" type="text">
+                </div>
+                <div class="buttons-main">
+                    <button onclick=main1() class="login">Log In</button>
+                    <button onclick=error() class="forget">Forget Password?</button>
+                </div>
+            </div>
+        `;
+            });
+        }
+        function main1() {
+            const app = document.querySelectorAll(".main1")
+            app.forEach((element, index) => {
+                element.innerHTML = `
         <div class="main1">
                 <h1>Create an account</h1>
                 <h4>Enter your details below</h4>
-                <div class="input1">
-                    <label for="name">Name</label>
+                <div onclick=move() class="input1">
+                    <label class="label1" for="name">Name</label>
                     <input id="name" type="text">
                 </div>
-                <div class="input1">
-                    <label for="name2">Email or Phone Number</label>
+                <div onclick=move2()  class="input1">
+                    <label class="label2" for="name2">Email or Phone Number</label>
                     <input id="name2" type="text">
                 </div>
-                <div class="input1">
-                    <label for="name3">Password</label>
+                <div onclick=move3() class="input1">
+                    <label class="label3" for="name3">Password</label>
                     <input id="name3" type="text">
                 </div>
                 <div class="buttons-main1">
-                    <button class="login1">Create Account</button>
-                    <button class="forget1">
+                    <button onclick=error() class="login1">Create Account</button>
+                    <button onclick=error() class="forget1">
     <img src="./Icon-Google.svg" alt="google image">
                         
                        <h4> Sign up with Google</h4></button>
                 </div>
+    <button class="arrow" onclick=main()><img src="./icons_arrow-left.png" alt=""></button>
+
             </div>
         `;
-    });
+            });
+        }
+        function move() {
+            const label = document.querySelector('.label1');
+            label.style.transform = 'translateY(0px)';
+        }
+        function move2() {
+            const label = document.querySelector('.label2');
+            label.style.transform = 'translateY(0px)';
+        }
+        function move3() {
+            const label = document.querySelector('.label3');
+            label.style.transform = 'translateY(0px)';
         }
 
     </script>
