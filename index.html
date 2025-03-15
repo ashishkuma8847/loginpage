@@ -317,6 +317,18 @@
         `;
             });
         }
+        function error2() {
+            const app = document.querySelectorAll(".main1")
+            app.forEach((element, index) => {
+                element.innerHTML = `
+      <div class="error">
+            <h1>ERROR 404</h1>
+    <button class="arrow" onclick=main1()><img src="./icons_arrow-left.png" alt=""></button>
+
+           </div>
+        `;
+            });
+        }
         function main() {
             const app = document.querySelectorAll(".main1")
             app.forEach((element, index) => {
@@ -360,8 +372,8 @@
                     <input id="name3" type="text">
                 </div>
                 <div class="buttons-main1">
-                    <button onclick=error() class="login1">Create Account</button>
-                    <button onclick=error() class="forget1">
+                    <button onclick=error2() class="login1">Create Account</button>
+                    <button onclick=error2() class="forget1">
     <img src="./Icon-Google.svg" alt="google image">
                         
                        <h4> Sign up with Google</h4></button>
