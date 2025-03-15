@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: white;
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            transition: all 1s ease-in-out;
+            align-items: center;
+            animation: colorchange 15s linear infinite;
+        }
+
+        @keyframes colorchange {
+            0% {
+                background-color: #1a1a2e;
+            }
+
+            25% {
+                background-color: #16213e;
+            }
+
+            50% {
+                background-color: #0f3460;
+            }
+
+            75% {
+                background-color: #533483;
+            }
+
+            100% {
+                background-color: #1a1a2e;
+            }
+        }
+
+
+
+        .container {
+            position: relative;
+            width: 450px;
+            height: 450px;
+        }
+
+        .neon-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: pulseRing 5s infinite alternate ease-in-out;
+        }
+
+        .neon-ring::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            border: 6px solid transparent;
+            border-image: linear-gradient(to right, #ff00ff, #00ffff, #ff00ff);
+            border-image-slice: 1;
+            animation: rotateRing 8s linear infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 40px rgba(255, 0, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.8);
+            }
+        }
+
+        @keyframes rotateRing {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 50%;
+            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input {
+            outline: none;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid white;
+            color: white;
+        }
+
+        .input1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input1:hover label {
+            transform: translateY(0px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        label {
+            transform: translateY(18px);
+            transition: all 0.5s ease-in-out;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+
+        }
+
+        h1 {
+            font-weight: 500;
+            font-size: 36px;
+            line-height: 30px;
+            letter-spacing: 4%;
+
+        }
+
+        h4 {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+
+        }
+
+        button {
+            background: transparent;
+            color: white;
+        }
+
+        .buttons-main {
+            display: flex;
+            gap: 10px;
+
+        }
+        .buttons-main1 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+        .login1 {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #164570;
+            border-radius: 5px;
+            font-family: Poppins;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            transition: all 0.2s;
+
+        }
+
+        .login1:hover {
+            background-color: #1a1a2e;
+        }
+
+        .forget1 {
+            padding: 12px;
+            display: flex;
+               justify-content: center;
+               align-items: center;
+               gap: 10px;
+               background: white;
+               color: black;
+               border-radius: 5px;
+            border: none;
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            transition: all 0.3s;
+
+        }
+        .forget1:hover{
+            background: transparent;
+            color: white;
+        }
+
+        .login {
+            width: 100px;
+            padding: 12px;
+            border: none;
+            background: #164570;
+            border-radius: 5px;
+            font-family: Poppins;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            transition: all 0.2s;
+
+        }
+
+        .login:hover {
+            background-color: #1a1a2e;
+        }
+
+        .forget {
+            gap: 10px;
+            border: none;
+            width: 100%;
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="neon-ring"></div>
+
+        <div class="wrapper">
+            <div class="main1">
+                <h1>Login</h1>
+                <h4>Enter your details below</h4>
+                <div class="input1">
+                    <label for="name1">Email or Phone Number</label>
+                    <input id="name1" type="text">
+                </div>
+                <div class="input1">
+                    <label for="name2">Password</label>
+                    <input id="name2" type="text">
+                </div>
+                <div class="buttons-main">
+                    <button onclick=main1() class="login">Log In</button>
+                    <button class="forget">Forget Password?</button>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <script>
+        function main1() {
+            const app= document.querySelectorAll(".main1")
+            app.forEach((element, index) => {
+        element.innerHTML = `
+        <div class="main1">
+                <h1>Create an account</h1>
+                <h4>Enter your details below</h4>
+                <div class="input1">
+                    <label for="name">Name</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="input1">
+                    <label for="name2">Email or Phone Number</label>
+                    <input id="name2" type="text">
+                </div>
+                <div class="input1">
+                    <label for="name3">Password</label>
+                    <input id="name3" type="text">
+                </div>
+                <div class="buttons-main1">
+                    <button class="login1">Create Account</button>
+                    <button class="forget1">
+    <img src="./Icon-Google.svg" alt="google image">
+                        
+                       <h4> Sign up with Google</h4></button>
+                </div>
+            </div>
+        `;
+    });
+        }
+
+    </script>
+</body>
+
+</html>
