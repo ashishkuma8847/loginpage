@@ -308,33 +308,30 @@
 
     <script>
         function error() {
-            const app = document.querySelectorAll(".main1")
-            app.forEach((element, index) => {
-                element.innerHTML = `
+            const app = document.querySelector(".main1")
+            app.innerHTML = `
       <div class="error">
             <h1>ERROR 404</h1>
     <button class="arrow" onclick=main()><img src="./icons_arrow-left.png" alt=""></button>
 
            </div>
         `;
-            });
+            
         }
         function error2() {
-            const app = document.querySelectorAll(".main1")
-            app.forEach((element, index) => {
-                element.innerHTML = `
+            const app = document.querySelector(".main1")
+            app.innerHTML = `
       <div class="error">
             <h1>ERROR 404</h1>
     <button class="arrow" onclick=main1()><img src="./icons_arrow-left.png" alt=""></button>
 
            </div>
         `;
-            });
+            
         }
         function main() {
-            const app = document.querySelectorAll(".main1")
-            app.forEach((element, index) => {
-                element.innerHTML = `
+            const app = document.querySelector(".main1")
+            app.innerHTML = `
        <div class="main1">
                 <h1>Login</h1>
                 <h4>Enter your details below</h4>
@@ -354,12 +351,11 @@
 
             </div>
         `;
-            });
+            
         }
         function main1() {
-            const app = document.querySelectorAll(".main1")
-            app.forEach((element, index) => {
-                element.innerHTML = `
+            const app = document.querySelector(".main1")
+            app.innerHTML = `
         <div class="main1">
                 <h1>Create an account</h1>
                 <h4>Enter your details below</h4>
@@ -386,7 +382,7 @@
 
             </div>
         `;
-            });
+            
         }
         function move() {
             const label = document.querySelector('.label1');
