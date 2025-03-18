@@ -288,18 +288,18 @@
                 <h1>Login</h1>
                 <h4>Enter your details below</h4>
                 <div onclick="move()" class="input1">
-                    <label class="label1" for="name1">Email or Phone Number</label>
-                    <input id="name1" type="email">
+                    <label   class="label1" for="name1">Email or Phone Number</label>
+                    <input id="username" type="email">
                 </div>
                 <div onclick="move2()" class="input1">
                     <label class="label2" for="name2">Password</label>
-                    <input id="name2" type="password">
+                    <input id="password" type="password">
                 </div>
                 <div class="buttons-main">
-                    <button onclick=error() class="login">Log In</button>
+                    <button  id="registerBtn" class="login">Log In</button>
                     <button onclick=error() class="forget">Forget Password?</button>
                 </div>
-                <button class="forget1" onclick=main1()>Create an account</button>
+                <button class="forget1" onclick=>Create an account</button>
             </div>
            
         </div>
@@ -307,6 +307,36 @@
 
 
     <script>
+ document.getElementById('registerBtn').addEventListener('click', function () {
+            let getUsername = document.getElementById('username').value;
+            let getPassword = document.getElementById('password').value;
+
+            // Register API function
+            async function register() {
+                try {
+                    const response = await fetch('http://localhost:3000/api/postdata', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: getUsername,
+                           
+                            password: getPassword,
+                            
+                        })
+                    });
+                    const data = await response.json();
+                    alert(data.message);
+                } catch (error) {
+                    console.error("Registration failed:", error);
+                    alert("Registration failed. Please try again.");
+                }
+            }
+            register();
+        });
+
+
         function error() {
             const app = document.querySelector(".main1")
             app.innerHTML = `
